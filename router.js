@@ -3,7 +3,7 @@ const router = express.Router();
 const conexion = require('./database/db');
 const crud = require('./controllers/crud');
 
-// Listar todos los animes
+// Listar todas las peliculas
 router.get('/', (req, res) => {
   conexion.query('SELECT * FROM peliculas', (error, results) => {
     if (error) throw error;
@@ -16,7 +16,8 @@ router.get('/create', (req, res) => {
   res.render('create');
 });
 
-// Guardar nuevo anime
+
+// Guardar nueva pelicula
 router.post('/save', crud.save);
 // Editar, actualizar y borrar dependerá de tu controlador
 router.get('/edit/:id', crud.edit);
